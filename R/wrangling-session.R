@@ -134,3 +134,5 @@ nhanes_small %>%
               mean_bmi=mean(bmi, na.rm = TRUE)) %>%
     ungroup()
 
+# Saving data as an .rda file in the data folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
