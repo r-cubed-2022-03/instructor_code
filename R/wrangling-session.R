@@ -123,3 +123,7 @@ nhanes_small %>%
 nhanes_small %>%
     mutate(old = if_else(age>=30, "Yes", "No"))
 
+nhanes_small %>%
+    summarise(max_bmi=max(bmi, na.rm = TRUE),
+              min_bmi=min(bmi, na.rm = TRUE))
+
