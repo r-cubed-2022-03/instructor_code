@@ -1,0 +1,51 @@
+# Load up the packages
+source(here::here("R/package_loading.R"))
+
+# Briefly glimpse the content of dataset
+glimpse(NHANES)
+
+# Select one column by its name without quotes
+select(NHANES, Age)
+
+select(NHANES, Age, Weight, BMI)
+
+# To excude a column use minus
+select(NHANES, -HeadCirc)
+
+# All column starting with letters "BP" (blood pressure)
+select(NHANES, starts_with("BP"))
+
+# All columns ending in letters "Day"
+select(NHANES, ends_with("Day"))
+
+# all containing letters "Age"
+select(NHANES, contains("Age"))
+
+# Save the selected columns as a new dataframe
+nhanes_small <- select(NHANES, Age, Gender,
+                       BMI, Diabetes, PhysActive,
+                       BPSysAve, BPDiaAve, Education)
+# View the new dataframe
+nhanes_small
+
+# Rename all columns to snake case
+nhanes_small <- rename_with(nhanes_small,
+                            snakecase::to_snake_case)
+
+# Look at the data frame
+nhanes_small
+
+nhanes_small <- rename(nhanes_small, sex=gender)
+
+nhanes_small
+
+# These two ways are the same
+colnames(nhanes_small)
+
+nhanes_small %>%
+    colnames()
+
+nhanes_small %>%
+    select(phys_active) %>%
+    rename(physically_active=phys_active)
+nhanes_small
