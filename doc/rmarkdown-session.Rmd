@@ -2,8 +2,29 @@
 title: "Reproducible documents"
 author: "Isabell V. S. Ernst"
 date: "2/3/2022"
-output: html_document
+output: 
+    html_document:
+        theme: darkly
 ---
+
+- Isabell V. S. Ernst
+- University of Southern Denmark
+- BMB
+
+# Intro
+
+**This** is the *intro*
+
+# Methods and Results
+
+**This** is the *methods and results*
+## Analysis
+
+# Discussion
+
+**This** is the *Discussion* 
+
+
 ```{r}
 2+2
 ```
@@ -37,4 +58,16 @@ nhanes_small %>%
            "Mean Age" = mean_age, "Mean BMI" = mean_bmi) %>% 
     knitr::kable(caption = "Table caption. Mean values of Age and BMI for each education and diabetes status.")
 ```
+
+![Image by Dimitri Houtteman From Pixabay.](images/kitten.jpg)
+
+```{r kitten-image, fig.cap="Image by Dimitri Houtteman From Pixabay.", fig.align='center', out.height="50%", out.width="50%"}
+knitr::include_graphics(here::here("doc/images/kitten.jpg"))
+```
+
+
+
+
+
+
 
